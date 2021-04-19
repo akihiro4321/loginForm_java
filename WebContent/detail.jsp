@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="model.StudentMemo" %>
 <!DOCTYPE html>
 <html>
   <!-- 共通パーツ（ヘッダー）読み込み -->
@@ -23,6 +24,7 @@
 
 
         <!-- 学生の詳細情報（新規登録の場合は空白を表示） -->
+        <% StudentMemo studentMemo = (StudentMemo)request.getAttribute("studentMemo"); %>
 
         <div class="row justify-content-center">
           <div class="media-container-column col-lg-8">
@@ -50,7 +52,7 @@
                 </div>
                 <div class="col-md-12 form-group">
                   <label class="form-control-label">更新者</label>
-                  <p></p>
+                  <p><%= studentMemo.getStaffName() %></p>
                 </div>
                 <div class="col-md-12 align-center">
                   <button type="submit" class="btn btn-primary btn-form display-4">登録</button>

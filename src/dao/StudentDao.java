@@ -34,5 +34,25 @@ public class StudentDao extends BaseDao {
         }
         return studentList;
     }
+    public String findMemoId(String studentNumber) throws CampusException{
+        String memoId = null;
+        try {
+            String sql = "SELECT memo_id FROM memo WHERE student_number = ?";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, studentNumber);
+            //SQL操作
+            rs = ps.executeQuery();
+
+            while(rs.next()) {
+                memoId = rs.getString("memo_id");
+            }
+            close();
+        }catch (SQLException e) {
+            e.printStackTrace();
+            throw new CampusException("メモIDの取得に失敗しました");
+        }
+
+        return memoId;
+    }
 
 }

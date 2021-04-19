@@ -29,6 +29,10 @@ public class StudentServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Staff staff = (Staff)session.getAttribute("staff");
         StudentMemo studentMemo = null;
+        //詳細ボタンから遷移してきたときの処理
+
+
+        //学生登録ボタンから遷移してきたときの処理
         try {
             String staffId = staff.getStaffId();
             String staffName = staff.getStaffName();
